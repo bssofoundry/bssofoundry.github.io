@@ -5,5 +5,6 @@
 layout: home
 ---
 
-* [mf](/ontology/mf/)
-* [mfoem](/ontology/mfoem/)
+<!-- * [mf](/ontology/mf/)
+* [mfoem](/ontology/mfoem/) -->
+
