@@ -1,5 +1,5 @@
 ---
-layout: ontology_detail
+layout: ontology_detail_test
 id: mfoem
 contact:
   email: janna.hastings@gmail.com

@@ -1,6 +1,6 @@
 ---
 
-layout: ontology_detail
+layout: ontology_detail_test
 id: mf
 datatable: true
 contact:
