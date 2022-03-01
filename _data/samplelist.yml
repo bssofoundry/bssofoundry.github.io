@@ -2,7 +2,7 @@ docs_list_title: ACME Documentation
 docs:
 
 - title: Home
-  url: homme.html
+  url: home.html
 
 # - title: Configuration
 #   url: configuration.html
