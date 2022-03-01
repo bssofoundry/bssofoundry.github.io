@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>{{ page.title }}</title>
+    <link rel="stylesheet" href="/css/style.css">
+  </head>
+  <body>
+    <nav>
+      <a href="/">Home</a>
+    </nav>
+    <h1>{{ page.title }}</h1>
+    <section>
+        <table>
+            <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>GitHub</th>
+                <th>Orcid</th>
+            </tr>
+            <tr>
+                <td>{{ page.contact.label }}</td>
+                <td>{{ page.contact.email }}</td>
+                <td>{{ page.contact.github }}</td>
+                <td>{{ page.contact.orcid }}</td>
+            </tr>
+        </table>
+        <table>
+            <tr>
+                <th>Description</th>
+            </tr>
+            <tr>
+                <td>
+                    {{ page.description }}
+                </td>
+            </tr>
+        </table>
+        <table>
+                <th>Domain</th>
+                <th>Home Page</th>
+                <th>Products</th>
+            </tr>
+            <tr>
+                <td>{{ page.domain }}</td>
+                <td>{{ page.homepage }}</td>
+                <td>{{ page.products.id }}</td> <!--products.id weird format?-->
+            </tr>
+        </table>
+
+      
+    </section>
+    <footer>
+      &copy; to me
+    </footer>
+  </body>
+</html>
