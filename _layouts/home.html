@@ -1,6 +1,10 @@
 ---
 layout: default
 ---
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
 <div class="home">
   {%- if page.title -%}
@@ -8,30 +12,48 @@ layout: default
   {%- endif -%}
 
   {{ content }}
-  <iframe src={% link ontology/mf.md %} width="1000" height="1000" frameborder="0" scrolling="no"></iframe>
-  <br>
-  <iframe src={% link ontology/mfoem.md %} width="1000" height="1000" frameborder="0" scrolling="no"></iframe>
 
-  <!-- {%- if site.posts.size > 0 -%}
-    <h2 class="post-list-heading">{{ page.list_title | default: "Posts" }}</h2>
-    <ul class="post-list">
-      {%- for post in site.posts -%}
-      <li>
-        {%- assign date_format = site.minima.date_format | default: "%b %-d, %Y" -%}
-        <span class="post-meta">{{ post.date | date: date_format }}</span>
-        <h3>
-          <a class="post-link" href="{{ post.url | relative_url }}">
-            {{ post.title | escape }}
-          </a>
-        </h3>
-        {%- if site.show_excerpts -%}
-          {{ post.excerpt }}
-        {%- endif -%}
-      </li>
-      {%- endfor -%}
-    </ul>
-
-    <p class="rss-subscribe">subscribe <a href="{{ "/feed.xml" | relative_url }}">via RSS</a></p>
-  {%- endif -%} -->
-
+  <button id="switch-outline" type="button" class="btn btn-primary">Switch</button>
+  <!--OUTLINE-->
+  <div id="outline">
+    <iframe src={% link ontology/mf_outline.md %} width="1000" height="250" frameborder="0" scrolling="no"></iframe>
+    <br>
+  <iframe src={% link ontology/mfoem_outline.md %} width="1000" height="250" frameborder="0" scrolling="no"></iframe>
+  </div>
+    <!--FULL DETAILS-->
+  <div id="full-details">  
+    <iframe src={% link ontology/mf.md %} width="1000" height="250" frameborder="0" scrolling="no"></iframe>
+    <br>
+    <iframe src={% link ontology/mfoem.md %} width="1000" height="250" frameborder="0" scrolling="no"></iframe>
+  </div>
+  </div>
 </div>
+  <script>
+    window.onload = function() {
+      let full_outline = false;
+      $("#outline").show();
+      $("#full-details").hide();
+      //  alert("hello!");
+      //  console.log("hello");
+      
+      //  {% assign full_outline = true %} 
+  
+       $("#switch-outline").click(function () {
+         console.log("changing full_outline");
+         full_outline = !full_outline;
+          if( full_outline == false){
+            $("#outline").hide();
+            $("#full-details").show();
+          } else{
+            $("#outline").show();
+            $("#full-details").hide();
+          }
+          // $("#content-div").show();
+          // $("#content-div").load(location.href + "#content-div"); //reload with new full_outline true/false
+       });
+      //todo: change full_outline to true
+   };
+
+  </script>
+
+
