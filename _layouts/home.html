@@ -22,15 +22,15 @@ layout: default
   </div>
     <!--FULL DETAILS-->
   <div id="full-details">  
-    <iframe src={% link ontology/mf.md %} width="1000" height="250" frameborder="0" scrolling="no"></iframe>
+    <iframe src={% link ontology/mf.md %} width="1000" height="500" frameborder="0" scrolling="no"></iframe>
     <br>
-    <iframe src={% link ontology/mfoem.md %} width="1000" height="250" frameborder="0" scrolling="no"></iframe>
+    <iframe src={% link ontology/mfoem.md %} width="1000" height="500" frameborder="0" scrolling="no"></iframe>
   </div>
   </div>
 </div>
   <script>
     window.onload = function() {
-      let full_outline = false;
+      var full_outline = false;
       $("#outline").show();
       $("#full-details").hide();
       //  alert("hello!");
@@ -38,10 +38,10 @@ layout: default
       
       //  {% assign full_outline = true %} 
   
-       $("#switch-outline").click(function () {
-         console.log("changing full_outline");
+       $("#switch-outline").click(function () {         
          full_outline = !full_outline;
-          if( full_outline == false){
+         console.log("changing full_outline: " + full_outline);
+          if( full_outline == true){
             $("#outline").hide();
             $("#full-details").show();
           } else{
