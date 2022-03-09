@@ -2,59 +2,122 @@
 layout: default
 ---
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+  integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
+  integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
+  integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
 <div class="home">
   {%- if page.title -%}
-    <h1 class="page-heading">{{ page.title }}</h1>
+  <h1 class="page-heading">{{ page.title }}</h1>
   {%- endif -%}
 
   {{ content }}
+  <div id="all-iframes">
 
-  <button id="switch-outline" type="button" class="btn btn-primary">Switch</button>
-  <!--TODO: switch-outline and divs populated per ontology-->
+  </div>
+  <!--TODO: delete below iframe wrappers when finished dynamic one-->
+  <!-- <button id="switch-outline" type="button" class="btn btn-primary">Switch</button> -->
   <!--OUTLINE-->
-  <div id="outline">
+  <!-- <div id="outline">
     <iframe src={% link ontology/mf_outline.md %} width="1000" height="250" frameborder="0" scrolling="no"></iframe>
     <br>
-  <iframe src={% link ontology/mfoem_outline.md %} width="1000" height="250" frameborder="0" scrolling="no"></iframe>
-  </div>
-    <!--FULL DETAILS-->
-  <div id="full-details">  
-    <iframe src={% link ontology/mf.md %} width="1000" height="500" frameborder="0" scrolling="no"></iframe>
+    <iframe src={% link ontology/mfoem_outline.md %} width="1000" height="250" frameborder="0" scrolling="no"></iframe>
+  </div> -->
+
+  <!--FULL DETAILS-->
+  <!-- <div id="full-details">
+    <iframe src={% link ontology/mf.md %} width="1100" height="500" frameborder="0" scrolling="no"></iframe>
     <br>
-    <iframe src={% link ontology/mfoem.md %} width="1000" height="500" frameborder="0" scrolling="no"></iframe>
-  </div>
-  </div>
+    <iframe src={% link ontology/mfoem.md %} width="1100" height="500" frameborder="0" scrolling="no"></iframe>
+  </div> -->
 </div>
-  <script>
-    window.onload = function() {
-      var full_outline = false;
-      $("#outline").show();
-      $("#full-details").hide();
-      //  alert("hello!");
-      //  console.log("hello");
+
+<script>
+  window.onload = function () {
+
+    // programatically add iframes: 
+    var num_ids = 2;
+    for (var i = 0; i < num_ids; i+=2) {
+      //todo: 2 below make into multi (Liquid for loop)
+      var j = i + 1;
+      //outline:
+      var f = "switch-to-full" + i;
+      $("<div />", { "class": "wrapper", id: "outline" + i })
+        .append($("<iframe src={% link ontology/mf_outline.md %} width='1000' height='250' frameborder='0' scrolling='no'></iframe>", { type: "iframe", id: "outline-frame" + i }))
+        .append($("<button id='" + f + "' type='button' class='btn btn-primary'>View full</button>"))
+        .appendTo("#all-iframes");
+      //full:
+      var f = "switch-to-outline" + i;
+      $("<div />", { "class": "wrapper", id: "full-details" + i })
+        .append($("<iframe src={% link ontology/mf.md %} width='1000' height='500' frameborder='0' scrolling='no'></iframe>", { type: "iframe", id: "full-frame" + i }))
+        .append($("<button id='" + f + "' type='button' class='btn btn-primary'>View outline</button>"))
+        .appendTo("#all-iframes");
       
-      //  {% assign full_outline = true %} 
-  
-       $("#switch-outline").click(function () {         
-         full_outline = !full_outline;
-         console.log("changing full_outline: " + full_outline);
-          if( full_outline == true){
-            $("#outline").hide();
-            $("#full-details").show();
-          } else{
-            $("#outline").show();
-            $("#full-details").hide();
-          }
-          // $("#content-div").show();
-          // $("#content-div").load(location.href + "#content-div"); //reload with new full_outline true/false
-       });
-      //todo: change full_outline to true
-   };
+      //outline:
+      var f = "switch-to-full" + j;
+      $("<div />", { "class": "wrapper", id: "outline" + j })
+        .append($("<iframe src={% link ontology/mfoem_outline.md %} width='1000' height='250' frameborder='0' scrolling='no'></iframe>", { type: "iframe", id: "outline-frame" + j }))
+        .append($("<button id='" + f + "' type='button' class='btn btn-primary'>View full</button>"))
+        .appendTo("#all-iframes");
+      //full:
+      var f = "switch-to-outline" + j;
+      $("<div />", { "class": "wrapper", id: "full-details" + j })
+        .append($("<iframe src={% link ontology/mfoem.md %} width='1000' height='500' frameborder='0' scrolling='no'></iframe>", { type: "iframe", id: "full-frame" + j }))
+        .append($("<button id='" + f + "' type='button' class='btn btn-primary'>View outline</button>"))
+        .appendTo("#all-iframes");
+    }
 
-  </script>
+    //initilise view - works:
+    for (var i = 0; i < num_ids; i++) {
+      $("#full-details" + i).hide();
+      $("outline" + i).show();
+    }
+    // $("#full-details0").hide();
+    // $("#full-details1").hide();
+
+    $("#switch-to-full" + 0).click(function () {      
+      $("#full-details0").show();
+      $("#outline0").hide();
+      console.log("switch-to-full0 pressed");
+    });
+    $("#switch-to-outline" + 0).click(function () {
+        $("#full-details0").hide();
+        $("#outline0").show();
+        console.log("switch-to-outline0 pressed");
+    });
+    $("#switch-to-full" + 1).click(function () {      
+      $("#full-details1").show();
+      $("#outline1").hide();
+      console.log("switch-to-full1 pressed");
+    });
+    $("#switch-to-outline" + 1).click(function () {
+        $("#full-details1").hide();
+        $("#outline1").show();
+        console.log("switch-to-outline1 pressed");
+    });
 
 
+    //create button click handlers: 
+    //todo: how can j be 2 here? What is going on??
+    // for (var j = 0; j < num_ids; j++) {
+    //   console.log("creating button handlers: "+j);
+    //   var f = "switch-to-full" + j;
+    //   $('#' + f).click(function () {
+    //     $("#full-details" + j).show();
+    //     $("#outline" + j).hide();
+    //     console.log("switch-to-full" + j + " pressed");
+    //   });
+    //   var o = "switch-to-outline" + j;
+    //   $('#' + o).click(function () {
+    //     $("#full-details" + j).hide();
+    //     $("#outline" + j).show();
+    //     console.log("switch-to-outline" + j + " pressed");
+    //   });
+    // }
+    
+  }
+
+</script>

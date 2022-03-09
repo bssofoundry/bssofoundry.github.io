@@ -34,24 +34,24 @@ layout: default
 
 <div class="content">
 
-  <h1>{{page.id}}</h1>
+  <!-- <h1>{{page.id}}</h1> -->
   <div>
     <div class="page-header">
       <h1>
         {% if page.depicted_by %}
         <img alt="logo" src="{{page.depicted_by}}" />
         {% endif %}
-        {{ page.title }}
+        {{ page.title }} ({{page.id}})
         <small>{{ page.tagline }}</small>
       </h1>
       <p>
         {{page.description}}
       </p>
-      <label>Link to downloadable ontology file:</label>
+      <label>PURL:</label>
       <a href="http://purl.obolibrary.org/obo/{{page.id}}.owl">http://purl.obolibrary.org/obo/{{page.id}}.owl</a>
       <br>
       
-      <label>Link to more information: </label>
+      <label>MORE INFORMATION: </label>
       <a href="http://purl.obolibrary.org/obo/{{page.id}}/">{{page.id}}</a>
     </div>
   </div>
