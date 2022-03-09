@@ -1,5 +1,6 @@
 ---
 layout: ontology_detail_test_outline
+tags: outline
 id: mfoem
 contact:
   email: janna.hastings@gmail.com

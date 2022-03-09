@@ -15,45 +15,74 @@ layout: default
   {%- endif -%}
 
   {{ content }}
+
+  <!-- {% for p in site.pages %}
+  {{ p.path }}
+  {% endfor %} -->
+  
+ 
+
+  <ul class="tags">
+    {% for tag in site.tags %}
+      {% assign t = tag | first %}
+      {% assign posts = tag | last %}
+      <li>{{t | downcase | replace:" ","-" }} has {{ posts | size }} posts</li>
+    {% endfor %}
+    </ul>
+    
+  
+
   <div id="all-iframes">
 
   </div>
-  <!--TODO: delete below iframe wrappers when finished dynamic one-->
-  <!-- <button id="switch-outline" type="button" class="btn btn-primary">Switch</button> -->
-  <!--OUTLINE-->
-  <!-- <div id="outline">
-    <iframe src={% link ontology/mf_outline.md %} width="1000" height="250" frameborder="0" scrolling="no"></iframe>
-    <br>
-    <iframe src={% link ontology/mfoem_outline.md %} width="1000" height="250" frameborder="0" scrolling="no"></iframe>
-  </div> -->
-
-  <!--FULL DETAILS-->
-  <!-- <div id="full-details">
-    <iframe src={% link ontology/mf.md %} width="1100" height="500" frameborder="0" scrolling="no"></iframe>
-    <br>
-    <iframe src={% link ontology/mfoem.md %} width="1100" height="500" frameborder="0" scrolling="no"></iframe>
-  </div> -->
+ 
 </div>
 
 <script>
-  window.onload = function () {
+  window.onload = function () { 
+  console.log("loaded");
+    var sitelist = [];
+    {% assign path_to_l = "" | split: "," %}
+    {% for p in site.pages %}
+    var path_to = "{{p.path}}";
+    
+    if(path_to.trim().includes(".md") && path_to.trim().includes("ontology")){
+      
 
+        sitelist.push("{{p.path}}");
+        
+    }      
+    {% endfor %}
+    console.log("got sitelist: " + sitelist);
+    
+  // {% for ont in site.ontology %}
+  //   <p>{{ont.title}}</p>
+  // {% endfor %}
     // programatically add iframes: 
     var num_ids = 2;
     for (var i = 0; i < num_ids; i+=2) {
       //todo: 2 below make into multi (Liquid for loop)
+      var h = i;
       var j = i + 1;
       //outline:
       var f = "switch-to-full" + i;
       $("<div />", { "class": "wrapper", id: "outline" + i })
         .append($("<iframe src={% link ontology/mf_outline.md %} width='1000' height='250' frameborder='0' scrolling='no'></iframe>", { type: "iframe", id: "outline-frame" + i }))
         .append($("<button id='" + f + "' type='button' class='btn btn-primary'>View full</button>"))
+        .on("click", "button", function(){
+          $("#full-details" + h).show();
+          $("#outline" + h).hide();
+        })
         .appendTo("#all-iframes");
       //full:
       var f = "switch-to-outline" + i;
       $("<div />", { "class": "wrapper", id: "full-details" + i })
         .append($("<iframe src={% link ontology/mf.md %} width='1000' height='500' frameborder='0' scrolling='no'></iframe>", { type: "iframe", id: "full-frame" + i }))
         .append($("<button id='" + f + "' type='button' class='btn btn-primary'>View outline</button>"))
+        .on("click", "button", function(){
+          $("#full-details" + h).hide();
+          $("#outline" + h).show();
+        })
         .appendTo("#all-iframes");
       
       //outline:
@@ -61,12 +90,20 @@ layout: default
       $("<div />", { "class": "wrapper", id: "outline" + j })
         .append($("<iframe src={% link ontology/mfoem_outline.md %} width='1000' height='250' frameborder='0' scrolling='no'></iframe>", { type: "iframe", id: "outline-frame" + j }))
         .append($("<button id='" + f + "' type='button' class='btn btn-primary'>View full</button>"))
+        .on("click", "button", function(){
+          $("#full-details" + j).show();
+          $("#outline" + j).hide();
+        })
         .appendTo("#all-iframes");
       //full:
       var f = "switch-to-outline" + j;
       $("<div />", { "class": "wrapper", id: "full-details" + j })
         .append($("<iframe src={% link ontology/mfoem.md %} width='1000' height='500' frameborder='0' scrolling='no'></iframe>", { type: "iframe", id: "full-frame" + j }))
         .append($("<button id='" + f + "' type='button' class='btn btn-primary'>View outline</button>"))
+        .on("click", "button", function(){
+          $("#full-details" + j).hide();
+          $("#outline" + j).show();
+        })
         .appendTo("#all-iframes");
     }
 
@@ -75,48 +112,7 @@ layout: default
       $("#full-details" + i).hide();
       $("outline" + i).show();
     }
-    // $("#full-details0").hide();
-    // $("#full-details1").hide();
-
-    $("#switch-to-full" + 0).click(function () {      
-      $("#full-details0").show();
-      $("#outline0").hide();
-      console.log("switch-to-full0 pressed");
-    });
-    $("#switch-to-outline" + 0).click(function () {
-        $("#full-details0").hide();
-        $("#outline0").show();
-        console.log("switch-to-outline0 pressed");
-    });
-    $("#switch-to-full" + 1).click(function () {      
-      $("#full-details1").show();
-      $("#outline1").hide();
-      console.log("switch-to-full1 pressed");
-    });
-    $("#switch-to-outline" + 1).click(function () {
-        $("#full-details1").hide();
-        $("#outline1").show();
-        console.log("switch-to-outline1 pressed");
-    });
-
-
-    //create button click handlers: 
-    //todo: how can j be 2 here? What is going on??
-    // for (var j = 0; j < num_ids; j++) {
-    //   console.log("creating button handlers: "+j);
-    //   var f = "switch-to-full" + j;
-    //   $('#' + f).click(function () {
-    //     $("#full-details" + j).show();
-    //     $("#outline" + j).hide();
-    //     console.log("switch-to-full" + j + " pressed");
-    //   });
-    //   var o = "switch-to-outline" + j;
-    //   $('#' + o).click(function () {
-    //     $("#full-details" + j).hide();
-    //     $("#outline" + j).show();
-    //     console.log("switch-to-outline" + j + " pressed");
-    //   });
-    // }
+   
     
   }
 

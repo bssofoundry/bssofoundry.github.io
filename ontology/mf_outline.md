@@ -1,6 +1,7 @@
 ---
 
 layout: ontology_detail_test_outline
+tags: outline
 id: mf
 datatable: true
 contact:
