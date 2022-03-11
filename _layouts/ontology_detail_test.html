@@ -1,7 +1,7 @@
 <!-- ---
 layout: default
 --- -->
-<!-- <link rel="stylesheet" href="{{ "/assets/main.css" | relative_url }}"> -->
+<!-- <link rel="stylesheet" target="_blank" href="{{ "/assets/main.css" | relative_url }}"> -->
 
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
@@ -9,10 +9,10 @@ layout: default
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
 <!-- Latest compiled and minified CSS -->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<link rel="stylesheet" target="_blank" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
 <!-- Optional theme -->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+<link rel="stylesheet" target="_blank" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
 
 <!-- Latest compiled and minified JavaScript -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
@@ -22,7 +22,7 @@ layout: default
  <!-- <meta charset="utf-8">
  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"> -->
+ <link rel="stylesheet" target="_blank" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"> -->
 
  <!-- Optional JavaScript -->
 
@@ -51,7 +51,7 @@ layout: default
       </p>
       {% if page.repository %}
         {% if page.repository contains "https://github.com/" %}
-        <a href="{{ page.repository }}">
+        <a target="_blank" href="{{ page.repository }}">
           <img alt="GitHub Repo stars" src="https://img.shields.io/github/stars/{{ page.repository | remove: 'https://github.com/' }}" />
           <img alt="GitHub contributors" src="https://img.shields.io/github/contributors/{{ page.repository | remove: 'https://github.com/' }}" />
           <img alt="GitHub last commit" src="https://img.shields.io/github/last-commit/{{ page.repository | remove: 'https://github.com/' }}" />
@@ -60,7 +60,7 @@ layout: default
         {% endif %}
       {% endif %}
       {% if page.twitter %}
-        <a href="https://twitter.com/{{ page.twitter }}">
+        <a target="_blank" href="https://twitter.com/{{ page.twitter }}">
           <img alt="Twitter Follow" src="https://img.shields.io/twitter/follow/{{ page.twitter }}?style=social">
         </a>
       {% endif %}
@@ -75,7 +75,7 @@ layout: default
     </div>
     {% for repl in page.replaced_by %}
     <div class="alert alert-info" role="alert">
-      Consider using: <a href="{{repl}}.html">{{repl}}</a>
+      Consider using: <a target="_blank" href="{{repl}}.html">{{repl}}</a>
     </div>
     {% endfor %}
   </div>
@@ -84,7 +84,7 @@ layout: default
   {% if page.activity_status == "inactive" %}{% unless page.is_obsolete %}
   <div>
     <div class="alert alert-warning" role="alert">
-      This ontology is inactive. For more information see <a href="/docs/OntologyStatus.html">here</a>.
+      This ontology is inactive. For more information see <a target="_blank" href="/docs/OntologyStatus.html">here</a>.
     </div>
   </div>
   {% endunless %}{% endif %}
@@ -92,7 +92,7 @@ layout: default
   {% if page.activity_status == "orphaned" %}{% unless page.is_obsolete %}
   <div>
     <div class="alert alert-warning" role="alert">
-      This ontology is orphaned. For more information see <a href="/docs/OntologyStatus.html">here</a>.
+      This ontology is orphaned. For more information see <a target="_blank" href="/docs/OntologyStatus.html">here</a>.
     </div>
   </div>
   {% endunless %}{% endif %}
@@ -114,23 +114,23 @@ layout: default
     <div class="row">
       <div class="col-md-8">
         <!-- TODO: each ontology should configure which browsers to be exposed in -->
-        <a href="http://www.ontobee.org/browser/index.php?o={{page.id}}">
+        <a target="_blank" href="http://www.ontobee.org/browser/index.php?o={{page.id}}">
           <button type="button" class="btn btn-default">OntoBee</button>
         </a>
         {% if page.aberowl_id %}
-        <a href="http://aber-owl.net/ontology/{{page.aberowl_id | upcase}}">
+        <a target="_blank" href="http://aber-owl.net/ontology/{{page.aberowl_id | upcase}}">
           <button type="button" class="btn btn-default">AberOWL</button>
         </a>
         {% else %}
-        <a href="http://aber-owl.net/ontology/{{page.id | upcase}}">
+        <a target="_blank" href="http://aber-owl.net/ontology/{{page.id | upcase}}">
           <button type="button" class="btn btn-default">AberOWL</button>
         </a>
         {% endif %}
-        <a href="http://www.ebi.ac.uk/ols/ontologies/{{page.id}}">
+        <a target="_blank" href="http://www.ebi.ac.uk/ols/ontologies/{{page.id}}">
           <button type="button" class="btn btn-default">OLS</button>
         </a>
         {% for b in page.browsers %}
-        <a href="{{b.url}}">
+        <a target="_blank" href="{{b.url}}">
           <button type="button" class="btn btn-default">{{b.label}}</button>
         </a>
         {% endfor %}
@@ -145,7 +145,7 @@ layout: default
               {% for p in page.products %}
               <tr>
                 <td>
-                  <a href="http://purl.obolibrary.org/obo/{{p.id}}">{{p.id}}</a>
+                  <a target="_blank" href="http://purl.obolibrary.org/obo/{{p.id}}">{{p.id}}</a>
                 </td>
                 <td>
                   {{p.title}}
@@ -153,7 +153,7 @@ layout: default
                 <td>
                   {{p.description}}
                   {% if p.page %}
-                  <a href="{{p.page}}"> [page]</a>
+                  <a target="_blank" href="{{p.page}}"> [page]</a>
                   {% endif %}
                 </td>
               </tr>
@@ -166,20 +166,20 @@ layout: default
           <h2>Usages</h2>
           {% for p in page.usages %}
           <dl class="dl-horizontal">
-            <dt>User</dt> <dd><a href="{{p.user}}">{{p.user}}</a></dd>
+            <dt>User</dt> <dd><a target="_blank" href="{{p.user}}">{{p.user}}</a></dd>
             <dt>Description</dt><dd>{{p.description}}</dd>
             {% if p.type %}
             <dt>Type</dt> <dd>{{p.type}}</dd>
             {% endif %}
             {% if p.seeAlso %}
-            <dt>See also</dt> <dd><a href="{{p.seeAlso}}">{{p.seeAlso}}</a></dd>
+            <dt>See also</dt> <dd><a target="_blank" href="{{p.seeAlso}}">{{p.seeAlso}}</a></dd>
             {% endif %}
             {% if p.examples %}
             <dt>Examples</dt>
             <dd>
               <ul style="padding-left: 20px">
               {% for example in p.examples %}
-                <li><a href="{{example.url}}">{{example.description}}</a></li>
+                <li><a target="_blank" href="{{example.url}}">{{example.description}}</a></li>
               {% endfor %}
               </ul>
             </dd>
@@ -189,7 +189,7 @@ layout: default
             <dd>
               <ul style="padding-left: 20px">
               {% for publication in p.publications %}
-                <li><a href="{{publication.id}}">{{publication.title}}</a></li>
+                <li><a target="_blank" href="{{publication.id}}">{{publication.title}}</a></li>
               {% endfor %}
               </ul>
             </dd>
@@ -214,18 +214,18 @@ layout: default
             </span>
           </dt>
           <dd>
-            <a href="http://purl.obolibrary.org/obo/{{page.id}}/">{{page.id}}</a>
+            <a target="_blank" href="http://purl.obolibrary.org/obo/{{page.id}}/">{{page.id}}</a>
           </dd>
 
           <dt>PURL</dt>
           <dd>
-            <a href="http://purl.obolibrary.org/obo/{{page.id}}.owl">http://purl.obolibrary.org/obo/{{page.id}}.owl</a>
+            <a target="_blank" href="http://purl.obolibrary.org/obo/{{page.id}}.owl">http://purl.obolibrary.org/obo/{{page.id}}.owl</a>
           </dd>
 
           <dt>License</dt>
           <dd>
             {% if page.license %}
-            <a href="{{page.license.url}}">{{page.license.label}}</a>
+            <a target="_blank" href="{{page.license.url}}">{{page.license.label}}</a>
             {% if page.license.alert %}
             <div class="alert alert-danger" role="alert">
               <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
@@ -244,53 +244,53 @@ layout: default
 
           <dt>Homepage</dt>
           <dd>
-            <a href="{{page.homepage}}">{{page.homepage}}</a>
+            <a target="_blank" href="{{page.homepage}}">{{page.homepage}}</a>
           </dd>
           {% for p in page.page %}
           <dd>
-            <a href="{{p}}">{{p}}</a>
+            <a target="_blank" href="{{p}}">{{p}}</a>
           </dd>
           {% endfor %}
 
           {% if page.biosharing %}
           <dd>
-            <a href="{{page.biosharing}}">{{page.biosharing}}</a>
+            <a target="_blank" href="{{page.biosharing}}">{{page.biosharing}}</a>
           </dd>
           {% endif %}
 
           <dt>Contact</dt>
           <dd>
-            <a href="mailto:{{page.contact.email}}">{{page.contact.label}}</a>
+            <a target="_blank" href="mailto:{{page.contact.email}}">{{page.contact.label}}</a>
           </dd>
 
           <dt>Trackers</dt>
           <dd>
-            <a href="{{page.tracker}}">{{page.tracker}}</a>
+            <a target="_blank" href="{{page.tracker}}">{{page.tracker}}</a>
           </dd>
 
           <dt>Domain</dt>
           <dd>
-            <a href="/domain/{{page.domain}}.html">{{page.domain}}</a>
+            <a target="_blank" href="/domain/{{page.domain}}.html">{{page.domain}}</a>
           </dd>
 
           {% if page.mailing_list %}
           <dt>Mail List</dt>
           <dd>
-            <a href="{{page.mailing_list}}">{{page.mailing_list}}</a>
+            <a target="_blank" href="{{page.mailing_list}}">{{page.mailing_list}}</a>
           </dd>
           {% endif %}
 
           {% if page.taxon %}
           <dt>Taxon</dt>
           <dd>
-            <a href="http://amigo.geneontology.org/amigo/term/{{page.taxon.id}}">{{page.taxon.label}}</a>
+            <a target="_blank" href="http://amigo.geneontology.org/amigo/term/{{page.taxon.id}}">{{page.taxon.label}}</a>
           </dd>
           {% endif %}
 
           {% if page.exampleClass %}
           <dt>Example</dt>
           <dd>
-            <a href="http://purl.obolibrary.org/obo/{{page.exampleClass}}">{{page.exampleClass}}</a>
+            <a target="_blank" href="http://purl.obolibrary.org/obo/{{page.exampleClass}}">{{page.exampleClass}}</a>
           </dd>
           {% endif %}
 
@@ -298,7 +298,7 @@ layout: default
           <dt>Cite</dt>
           {% for p in page.publications %}
           <dd>
-            <small><a href="{{p.id}}">{{p.title}}</a></small>
+            <small><a target="_blank" href="{{p.id}}">{{p.title}}</a></small>
           </dd>
           {% endfor %}
           {% endif %}
@@ -316,7 +316,7 @@ layout: default
           <dt>Used by</dt>
           {% for x in page.used_by %}
           <dd>
-            <a href="{{x.url}}">{{x.label}}</a>
+            <a target="_blank" href="{{x.url}}">{{x.label}}</a>
           </dd>
           {% endfor %}
           {% endif %}
@@ -325,7 +325,7 @@ layout: default
           <dt>Dependencies</dt>
           {% for x in page.dependencies %}
           <dd>
-            <a href="{{x.id}}">{{x.id}}</a>
+            <a target="_blank" href="{{x.id}}">{{x.id}}</a>
           </dd>
           {% endfor %}
           {% endif %}
@@ -335,11 +335,11 @@ layout: default
           {% for p in page.jobs %}
           <dd>
             {% if p.type == "travis-cl" or p.id contains "travis" %}
-            <a href="{{p.id}}">
+            <a target="_blank" href="{{p.id}}">
               <img alt="Build Status" src="{{p.id}}.svg?branch=master"/>
             </a>
             {% else %}
-            <a href="{{p.id}}">{{p.type}}</a>
+            <a target="_blank" href="{{p.id}}">{{p.type}}</a>
             {% endif %}
           </dd>
           {% endfor %}
@@ -347,14 +347,14 @@ layout: default
 
           {% if page.review.date and page.review.document %}
           <dt>OBO Review</dt>
-          <dd>{{page.review.date}} <a href="{{page.review.document.link}}">{{page.review.document.label}}</a><dd>
+          <dd>{{page.review.date}} <a target="_blank" href="{{page.review.document.link}}">{{page.review.document.label}}</a><dd>
           {% endif %}
 
         </dl>
 
 
         <div class="btn-group" role="group" aria-label="Source">
-          <a href="https://github.com/OBOFoundry/OBOFoundry.github.io/blob/master/ontology/{{page.id}}.md">
+          <a target="_blank" href="https://github.com/OBOFoundry/OBOFoundry.github.io/blob/master/ontology/{{page.id}}.md">
             <button type="button"
                     data-toggle="tooltip"
                     title="See FAQ entry: How is metadata stored?"
@@ -363,7 +363,7 @@ layout: default
               View
             </button>
           </a>
-          <a href="https://github.com/OBOFoundry/OBOFoundry.github.io/edit/master/ontology/{{page.id}}.md">
+          <a target="_blank" href="https://github.com/OBOFoundry/OBOFoundry.github.io/edit/master/ontology/{{page.id}}.md">
 
             <button type="button"
                     data-toggle="tooltip"
@@ -372,7 +372,7 @@ layout: default
                     class="btn btn-default">
               Edit</button>
           </a>
-          <a href="https://github.com/OBOFoundry/purl.obolibrary.org/blob/master/config/{{page.id}}.yml">
+          <a target="_blank" href="https://github.com/OBOFoundry/purl.obolibrary.org/blob/master/config/{{page.id}}.yml">
 
             <button type="button"
                     data-toggle="tooltip"
@@ -382,7 +382,7 @@ layout: default
               PURL</button>
           </a>
           <div>
-            Generated by: <a href="{{site.repo_src}}_layouts/ontology_detail.html">_layouts/ontology_detail.html</a><br/> See <a href="/faq/how-do-i-edit-metadata.html">metadata guide</a>
+            Generated by: <a target="_blank" href="{{site.repo_src}}_layouts/ontology_detail.html">_layouts/ontology_detail.html</a><br/> See <a target="_blank" href="/faq/how-do-i-edit-metadata.html">metadata guide</a>
           </div>
           <!-- <button type="button" class="btn btn-default">Help</button> -->
         </div>
@@ -395,7 +395,7 @@ layout: default
         <footer class="footer">
           <div class="container">
             <p class="text-muted">
-              Edit the metadata for this page: <a href="https://github.com/OBOFoundry/OBOFoundry.github.io/edit/master/ontology/{{page.id}}.md">{{page.id}}.md</a> (GitHub will help you create a fork and pull request.)
+              Edit the metadata for this page: <a target="_blank" href="https://github.com/OBOFoundry/OBOFoundry.github.io/edit/master/ontology/{{page.id}}.md">{{page.id}}.md</a> (GitHub will help you create a fork and pull request.)
 
             </p>
           </div>
@@ -422,8 +422,8 @@ layout: default
           (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
           })();
         </script>
-        <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-        <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+        <noscript>Please enable JavaScript to view the <a target="_blank" href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+        <a target="_blank" href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
       </div>
     </div>
     {% endif %}
