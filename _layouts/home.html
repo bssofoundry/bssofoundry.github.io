@@ -42,15 +42,23 @@ layout: default
   window.onload = function () { 
   console.log("loaded");
     var sitelist = [];
-    {% assign path_to_l = "" | split: "," %}
+    var reflist = [];
+    {% assign path_to_l = "" | split: "," %} //todo: add to this Liquid array instead. 
     {% for p in site.pages %}
     var path_to = "{{p.path}}";
     
     if(path_to.trim().includes(".md") && path_to.trim().includes("ontology")){
-      
+      if(path_to.trim().includes("outline")){
 
-        sitelist.push("{{p.path}}");
-        
+      } else{
+        {% assign pp = p.path %}
+        var p_md_name = "{{pp}}";
+        p_md_name = p_md_name.split(".")[0];
+        // console.log("{{pp}}");
+        // sitelist.push("{{pp}}");
+        sitelist.push(p_md_name);
+        reflist.push(p_md_name.split("/")[1]);
+      }       
     }      
     {% endfor %}
     console.log("got sitelist: " + sitelist);
@@ -59,52 +67,56 @@ layout: default
   //   <p>{{ont.title}}</p>
   // {% endfor %}
     // programatically add iframes: 
-    var num_ids = 2;
-    for (var i = 0; i < num_ids; i+=2) {
-      //todo: 2 below make into multi (Liquid for loop)
-      var h = i;
-      var j = i + 1;
+    var num_ids = sitelist.length;
+    var f = "";
+    for (let i = 0; i < num_ids; i++) {
+      console.log("adding i: " + i);
+      //todo: support any number of iframes
+      // var h = i;
+      // var j = i + 1;
       //outline:
-      var f = "switch-to-full" + i;
+      f = "switch-to-full" + i;
       $("<div />", { "class": "wrapper", id: "outline" + i })
-        .append($("<iframe src={% link ontology/mf_outline.md %} width='1000' height='250' frameborder='0' scrolling='no'></iframe>", { type: "iframe", id: "outline-frame" + i }))
+        .append($("<iframe src='" + sitelist[i] + "_outline.html' width='1000' height='250' frameborder='0' scrolling='no'></iframe>", { type: "iframe", id: "outline-frame" + i }))
         .append($("<button id='" + f + "' type='button' class='btn btn-primary'>View full</button>"))
         .on("click", "button", function(){
-          $("#full-details" + h).show();
-          $("#outline" + h).hide();
+          // console.log("clicked " + i);
+          $("#full-details" + i).show();
+          $("#outline" + i).hide();
         })
         .appendTo("#all-iframes");
       //full:
-      var f = "switch-to-outline" + i;
+      f = "switch-to-outline" + i;
       $("<div />", { "class": "wrapper", id: "full-details" + i })
-        .append($("<iframe src={% link ontology/mf.md %} width='1000' height='500' frameborder='0' scrolling='no'></iframe>", { type: "iframe", id: "full-frame" + i }))
+        .append($("<iframe src='" + sitelist[i] + ".html' width='1000' height='500' frameborder='0' scrolling='no'></iframe>", { type: "iframe", id: "full-frame" + i }))
         .append($("<button id='" + f + "' type='button' class='btn btn-primary'>View outline</button>"))
         .on("click", "button", function(){
-          $("#full-details" + h).hide();
-          $("#outline" + h).show();
+          // console.log("clicked " + i);
+          $("#full-details" + i).hide();
+          $("#outline" + i).show();
         })
         .appendTo("#all-iframes");
       
       //outline:
-      var f = "switch-to-full" + j;
-      $("<div />", { "class": "wrapper", id: "outline" + j })
-        .append($("<iframe src={% link ontology/mfoem_outline.md %} width='1000' height='250' frameborder='0' scrolling='no'></iframe>", { type: "iframe", id: "outline-frame" + j }))
-        .append($("<button id='" + f + "' type='button' class='btn btn-primary'>View full</button>"))
-        .on("click", "button", function(){
-          $("#full-details" + j).show();
-          $("#outline" + j).hide();
-        })
-        .appendTo("#all-iframes");
-      //full:
-      var f = "switch-to-outline" + j;
-      $("<div />", { "class": "wrapper", id: "full-details" + j })
-        .append($("<iframe src={% link ontology/mfoem.md %} width='1000' height='500' frameborder='0' scrolling='no'></iframe>", { type: "iframe", id: "full-frame" + j }))
-        .append($("<button id='" + f + "' type='button' class='btn btn-primary'>View outline</button>"))
-        .on("click", "button", function(){
-          $("#full-details" + j).hide();
-          $("#outline" + j).show();
-        })
-        .appendTo("#all-iframes");
+      // var f = "switch-to-full" + j;
+      // $("<div />", { "class": "wrapper", id: "outline" + j })
+      //   .append($("<iframe src='/ontology/mfoem_outline.html' width='1000' height='250' frameborder='0' scrolling='no'></iframe>", { type: "iframe", id: "outline-frame" + j }))
+      //   .append($("<button id='" + f + "' type='button' class='btn btn-primary'>View full</button>"))
+      //   .on("click", "button", function(){
+      //     $("#full-details" + j).show();
+      //     $("#outline" + j).hide();
+      //   })
+      //   .appendTo("#all-iframes");
+      // //full:
+      // var f = "switch-to-outline" + j;
+      // $("<div />", { "class": "wrapper", id: "full-details" + j })
+      //   .append($("<iframe src='/ontology/mfoem.html' width='1000' height='500' frameborder='0' scrolling='no'></iframe>", { type: "iframe", id: "full-frame" + j }))
+      //   .append($("<button id='" + f + "' type='button' class='btn btn-primary'>View outline</button>"))
+      //   .on("click", "button", function(){
+      //     $("#full-details" + j).hide();
+      //     $("#outline" + j).show();
+      //   })
+      //   .appendTo("#all-iframes");
     }
 
     //initilise view - works:
