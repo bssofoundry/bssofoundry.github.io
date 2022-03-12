@@ -16,7 +16,8 @@ layout: default
   {%- if page.title -%}
   <h1 class="page-heading">{{ page.title }}</h1>
   {%- endif -%}
-
+  <h3>{{site.description}}</h3>
+  <p>{{site.sub_description}}</p>
   {{ content }}
   
 
@@ -67,8 +68,8 @@ layout: default
       
       //outline:
       f = "switch-to-full" + i;
-      $("<div />", { "class": "wrapper", id: "outline" + i })
-        .append($("<iframe src='" + sitelist[i] + "_outline.html' width='1100' height='250' frameborder='0' scrolling='no'></iframe>", { type: "iframe", id: "outline-frame" + i }))
+      $("<div />", { "class": "wrapper", id: "outline" + i , style: "outline:0.01em solid black; float:left; background-color: #EBEBEB;"})
+        .append($("<iframe src='" + sitelist[i] + "_outline.html' width='750' height='150' frameborder='0' scrolling='no'></iframe>", { type: "iframe", id: "outline-frame" + i }))
         .append($("<button id='" + f + "' type='button' class='btn btn-primary'>View full</button>"))
         .on("click", "button", function(){
           $("#full-details" + i).show();
@@ -77,8 +78,8 @@ layout: default
         .appendTo("#all-iframes");
       //full:
       f = "switch-to-outline" + i;
-      $("<div />", { "class": "wrapper", id: "full-details" + i })
-        .append($("<iframe src='" + sitelist[i] + ".html' width='1100' height='500' frameborder='0' scrolling='no'></iframe>", { type: "iframe", id: "full-frame" + i }))
+      $("<div />", { "class": "wrapper", id: "full-details" + i, style: "outline:0.01em solid black; float:left; background-color: #EBEBEB;" })
+        .append($("<iframe src='" + sitelist[i] + ".html' width='760' height='700' frameborder='0' scrolling='no'></iframe>", { type: "iframe", id: "full-frame" + i }))
         .append($("<button id='" + f + "' type='button' class='btn btn-primary'>View outline</button>"))
         .on("click", "button", function(){
           $("#full-details" + i).hide();

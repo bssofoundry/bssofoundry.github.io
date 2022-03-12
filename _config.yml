@@ -13,10 +13,12 @@
 # you will see them accessed via {{ site.title }}, {{ site.email }}, and so on.
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
-title: BSSO Foundry Website
+title: The Behavioural and Social Sciences Ontology (BSSO) Foundry
 email: j.hastings@ucl.ac.uk
 description: >- # this means to ignore newlines until "baseurl:"
-  Behavioural and Social Sciences Ontologies Foundry website
+  A community of interoperable ontologies for the behavioural and social sciences
+sub_description: >-
+  The table below lists participating ontologies that are relevant to the Behavioural and Social Sciences
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://www.bssofoundry.org/" # the base hostname & protocol for your site, e.g. http://example.com
 # twitter_username: jekyllrb
