@@ -37,7 +37,7 @@
           </span>
         </label>
 
-        <div class="trigger"><!-- todo: changed - below was just: if my_page.title --><!-- todo: changed - below was just: if my_page.title --><!-- todo: changed - below was just: if my_page.title --><!-- todo: changed - below was just: if my_page.title --><!-- todo: changed - below was just: if my_page.title --><!-- todo: changed - below was just: if my_page.title --><!-- todo: changed - below was just: if my_page.title --><!-- todo: changed - below was just: if my_page.title --><!-- todo: changed - below was just: if my_page.title --></div>
+        <div class="trigger"><!-- todo: changed - below was just: if my_page.title --><!-- todo: changed - below was just: if my_page.title --><!-- todo: changed - below was just: if my_page.title --><!-- todo: changed - below was just: if my_page.title --><!-- todo: changed - below was just: if my_page.title --><!-- todo: changed - below was just: if my_page.title --><!-- todo: changed - below was just: if my_page.title --><!-- todo: changed - below was just: if my_page.title --><!-- todo: changed - below was just: if my_page.title --><!-- todo: changed - below was just: if my_page.title --><!-- todo: changed - below was just: if my_page.title --><!-- todo: changed - below was just: if my_page.title --><!-- todo: changed - below was just: if my_page.title --></div>
       </nav></div>
 </header>
 <main class="page-content" aria-label="Content">
@@ -101,6 +101,62 @@
       } else{
         
         var p_md_name = "about.md";
+        p_md_name = p_md_name.split(".")[0];
+        sitelist.push(p_md_name);
+        reflist.push(p_md_name.split("/")[1]);
+      }       
+    }      
+    
+    var path_to = "ontology/addicto.md";
+    
+    if(path_to.trim().includes(".md") && path_to.trim().includes("ontology")){
+      if(path_to.trim().includes("outline")){
+
+      } else{
+        
+        var p_md_name = "ontology/addicto.md";
+        p_md_name = p_md_name.split(".")[0];
+        sitelist.push(p_md_name);
+        reflist.push(p_md_name.split("/")[1]);
+      }       
+    }      
+    
+    var path_to = "ontology/addicto_outline.md";
+    
+    if(path_to.trim().includes(".md") && path_to.trim().includes("ontology")){
+      if(path_to.trim().includes("outline")){
+
+      } else{
+        
+        var p_md_name = "ontology/addicto_outline.md";
+        p_md_name = p_md_name.split(".")[0];
+        sitelist.push(p_md_name);
+        reflist.push(p_md_name.split("/")[1]);
+      }       
+    }      
+    
+    var path_to = "ontology/bcio.md";
+    
+    if(path_to.trim().includes(".md") && path_to.trim().includes("ontology")){
+      if(path_to.trim().includes("outline")){
+
+      } else{
+        
+        var p_md_name = "ontology/bcio.md";
+        p_md_name = p_md_name.split(".")[0];
+        sitelist.push(p_md_name);
+        reflist.push(p_md_name.split("/")[1]);
+      }       
+    }      
+    
+    var path_to = "ontology/bcio_outline.md";
+    
+    if(path_to.trim().includes(".md") && path_to.trim().includes("ontology")){
+      if(path_to.trim().includes("outline")){
+
+      } else{
+        
+        var p_md_name = "ontology/bcio_outline.md";
         p_md_name = p_md_name.split(".")[0];
         sitelist.push(p_md_name);
         reflist.push(p_md_name.split("/")[1]);
@@ -226,7 +282,7 @@
       //full:
       f = "switch-to-outline" + i;
       $("<div />", { "class": "wrapper", id: "full-details" + i, style: "outline:0.01em solid black; float:left; background-color: #EBEBEB;" })
-        .append($("<iframe src='" + sitelist[i] + ".html' width='760' height='700' frameborder='0' scrolling='no'></iframe>", { type: "iframe", id: "full-frame" + i }))
+        .append($("<iframe src='" + sitelist[i] + ".html' width='760' height='720' frameborder='0' scrolling='no'></iframe>", { type: "iframe", id: "full-frame" + i }))
         .append($("<button id='" + f + "' type='button' class='btn btn-primary'>View outline</button>"))
         .on("click", "button", function(){
           $("#full-details" + i).hide();
