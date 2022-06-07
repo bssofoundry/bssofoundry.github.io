@@ -25,7 +25,76 @@
 <!-- End Jekyll SEO tag -->
 <link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="The Behavioural and Social Sciences Ontology (BSSO) Foundry" /></head>
 <body><!DOCTYPE html>
-<header class="site-header" role="banner">
+
+<style>
+  .header-text {
+    text-align: center
+    position: relative;
+    top: 80%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: black;
+  }
+
+  .logo-img {
+    text-align: left;
+    position: absolute;
+    top: 10px;
+    left: 10px;
+  }
+
+  .button1 {
+    width: 100px;
+    background-color: white;
+    color: black;
+    border: 2px solid #008CBA;
+    border-radius: 15px;
+  }
+
+  .dropdown {
+  display: inline-block;
+  float: right;
+  margin-right: 150px;
+  margin-top: 20px;
+  
+}
+.dropdown-content {
+  display: none;
+  position: absolute;
+  width: 100%;
+  overflow: auto;
+  box-shadow: 0px 10px 10px 0px rgba(0,0,0,0.4);
+}
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+.dropdown-content a {
+  display: block;
+  color: #000000;
+  padding: 5px;
+  text-decoration: none;
+}
+.dropdown-content a:hover {
+  color: #FFFFFF;
+  background-color: #00A4BD;
+}
+</style>
+
+<div id=“logo”>
+  <img src="/assets/bsso-1.svg" class="logo-img"></img>
+  <header class="header-text" role="banner"></header>
+
+  <div class="dropdown">
+    <button class="button1">About</button>
+    <div class="dropdown-content">
+    <a href="/what/">What are ontologies</a>
+    <a href="/bsso/">What is the BSSO Foundry</a>
+    </div>
+  </div>
+</div>
+
+
+
 
   <div class="wrapper"><a class="site-title" rel="author" href="/">The Behavioural and Social Sciences Ontology (BSSO) Foundry</a><nav class="site-nav">
         <input type="checkbox" id="nav-trigger" class="nav-trigger" />
@@ -37,7 +106,7 @@
           </span>
         </label>
 
-        <div class="trigger"><!-- todo: changed - below was just: if my_page.title --><!-- todo: changed - below was just: if my_page.title --><!-- todo: changed - below was just: if my_page.title --><!-- todo: changed - below was just: if my_page.title --><!-- todo: changed - below was just: if my_page.title --><!-- todo: changed - below was just: if my_page.title --><!-- todo: changed - below was just: if my_page.title --><!-- todo: changed - below was just: if my_page.title --><!-- todo: changed - below was just: if my_page.title --><!-- todo: changed - below was just: if my_page.title --><!-- todo: changed - below was just: if my_page.title --><!-- todo: changed - below was just: if my_page.title --><!-- todo: changed - below was just: if my_page.title --></div>
+        <div class="trigger"><!-- todo: changed - below was just: if my_page.title --><!-- todo: changed - below was just: if my_page.title --><!-- todo: changed - below was just: if my_page.title --><!-- todo: changed - below was just: if my_page.title --><!-- todo: changed - below was just: if my_page.title --><!-- todo: changed - below was just: if my_page.title --><!-- todo: changed - below was just: if my_page.title --><!-- todo: changed - below was just: if my_page.title --><!-- todo: changed - below was just: if my_page.title --><!-- todo: changed - below was just: if my_page.title --><!-- todo: changed - below was just: if my_page.title --><!-- todo: changed - below was just: if my_page.title --><!-- todo: changed - below was just: if my_page.title --><!-- todo: changed - below was just: if my_page.title --><!-- todo: changed - below was just: if my_page.title --></div>
       </nav></div>
 </header>
 <main class="page-content" aria-label="Content">
@@ -163,6 +232,20 @@
       }       
     }      
     
+    var path_to = "bsso.md";
+    
+    if(path_to.trim().includes(".md") && path_to.trim().includes("ontology")){
+      if(path_to.trim().includes("outline")){
+
+      } else{
+        
+        var p_md_name = "bsso.md";
+        p_md_name = p_md_name.split(".")[0];
+        sitelist.push(p_md_name);
+        reflist.push(p_md_name.split("/")[1]);
+      }       
+    }      
+    
     var path_to = "index.md";
     
     if(path_to.trim().includes(".md") && path_to.trim().includes("ontology")){
@@ -227,6 +310,20 @@
       } else{
         
         var p_md_name = "ontology/mfoem_outline.md";
+        p_md_name = p_md_name.split(".")[0];
+        sitelist.push(p_md_name);
+        reflist.push(p_md_name.split("/")[1]);
+      }       
+    }      
+    
+    var path_to = "what.md";
+    
+    if(path_to.trim().includes(".md") && path_to.trim().includes("ontology")){
+      if(path_to.trim().includes("outline")){
+
+      } else{
+        
+        var p_md_name = "what.md";
         p_md_name = p_md_name.split(".")[0];
         sitelist.push(p_md_name);
         reflist.push(p_md_name.split("/")[1]);
