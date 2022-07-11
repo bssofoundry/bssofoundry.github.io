@@ -16,7 +16,7 @@ products:
   - id: bcio.owl
 title: Behaviour Change Intervention Ontology
 build:
-  source_url: http://purl.obolibrary.org/obo/bcio.owl
+  source_url: http://humanbehaviourchange.org/ontology/bcio.owl
   method: owl2obo
 tracker: https://github.com/HumanBehaviourChangeProject/ontologies/issues
 license:

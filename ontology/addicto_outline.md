@@ -14,7 +14,7 @@ products:
   - id: addicto.owl
 title: Addiction Ontology
 build:
-  source_url: http://purl.obolibrary.org/obo/addicto.owl
+  source_url: http://addictovocab.org/addicto.owl
   method: owl2obo
 tracker: https://github.com/addicto-org/addiction-ontology/issues
 license:
