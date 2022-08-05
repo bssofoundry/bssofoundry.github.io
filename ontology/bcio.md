@@ -1,7 +1,7 @@
 ---
 
 layout: ontology_detail_test
-id: bcio
+id: BCIO
 datatable: true
 contact:
   email: janna.hastings@gmail.com
