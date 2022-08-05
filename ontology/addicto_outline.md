@@ -1,7 +1,7 @@
 ---
 layout: ontology_detail_test_outline
 tags: outline
-id: addicto
+id: ADDICTO
 contact:
   email: janna.hastings@gmail.com
   label: Janna Hastings
