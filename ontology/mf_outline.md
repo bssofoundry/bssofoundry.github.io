@@ -5,7 +5,7 @@ tags: outline
 id: mf
 datatable: true
 contact:
-  email: janna.hastings@gmail.com
+  email: j.hastings@ucl.ac.uk
   label: Janna Hastings
   github: jannahastings
   orcid: 0000-0002-3469-4923
