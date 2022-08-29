@@ -5,7 +5,7 @@ tags: outline
 id: BCIO
 datatable: true
 contact:
-  email: janna.hastings@gmail.com
+  email: j.hastings@ucl.ac.uk
   label: Janna Hastings
   github: jannahastings
   orcid: 0000-0002-3469-4923
@@ -28,4 +28,4 @@ preferredPrefix: BCIO
 
 ---
 
-A collaboration to synthesise what we know about behaviour change. It is a collaboration between behavioural scientists and systems architects at University College London and computer scientists at IBM Research, Dublin.
+The ontology developed by the Human Behaviour-Change Project to synthesise knowledge about human behaviour change. 
