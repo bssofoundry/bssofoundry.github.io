@@ -10,6 +10,7 @@ contact:
 description: An ontology for representing entities relevant to all aspects of addiction research and clinical practice.
 domain: health
 homepage: https://github.com/jannahastings/addiction-ontology
+product_base_url: http://purl.obolibrary.org/obo/
 products:
   - id: addicto.owl
 title: Addiction Ontology

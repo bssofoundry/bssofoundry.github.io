@@ -12,6 +12,7 @@ contact:
 description: A collaboration to synthesise what we know about behaviour change.
 domain: health
 homepage: https://github.com/HumanBehaviourChangeProject/ontologies
+product_base_url: http://purl.obolibrary.org/obo/
 products:
   - id: bcio.owl
 title: Behaviour Change Intervention Ontology

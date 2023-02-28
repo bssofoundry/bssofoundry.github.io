@@ -10,6 +10,7 @@ contact:
 description: An ontology of affective phenomena such as emotions, moods, appraisals and subjective feelings.
 domain: health
 homepage: https://github.com/jannahastings/emotion-ontology
+product_base_url: http://purl.obolibrary.org/obo/
 products:
   - id: mfoem.owl
 title: Emotion Ontology

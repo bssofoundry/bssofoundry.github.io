@@ -11,6 +11,10 @@ contact:
 description: An overarching ontology for all aspects of mental functioning.
 domain: health
 homepage: https://github.com/jannahastings/mental-functioning-ontology
+product_base_url: http://purl.obolibrary.org/obo/
+ontobee_id: true
+aberowl_id: true
+ols_id: true
 products:
   - id: mf.owl
 title: Mental Functioning Ontology
