@@ -2,7 +2,7 @@
 
 layout: ontology_detail_test_outline
 tags: outline
-id: TURBBO
+id: RBBO
 datatable: true
 contact:
   email: f.maikore@sheffield.ac.uk
@@ -13,10 +13,10 @@ domain: behavioural science
 homepage: https://github.com/fatibaba/turbbo
 product_base_url: https://purl.org/turbbo/
 products:
-  - id: turbbo.owl
+  - id: rbbo.owl
 title: Tools for understanding relationships between behaviours using ontology
 build:
-  source_url:  https://purl.org/turbbo/turbbo.owl
+  source_url:  https://purl.org/turbbo/RBBO.owl
   method: owl2obo
 tracker: https://github.com/fatibaba/turbbo/issues
 license:
@@ -24,7 +24,7 @@ license:
   label: CC BY 4.0
 activity_status: active
 repository: https://github.com/fatibaba/turbbo
-preferredPrefix: TURBBO
+preferredPrefix: RBBO
 
 ---
 

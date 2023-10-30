@@ -1,7 +1,7 @@
 ---
 
 layout: ontology_detail_test
-id: TURBBO
+id: RBBO
 datatable: true
 contact:
   email: f.maikore@sheffield.ac.uk
@@ -14,11 +14,11 @@ product_base_url: https://purl.org/turbbo/
 ontobee_id: false
 aberowl_id: false
 ols_id: false
-products:  
-  - id: turbbo.owl
+products:
+  - id: rbbo.owl
 title: Tools for understanding relationships between behaviours using ontology
 build:
-  source_url:  https://purl.org/turbbo/turbbo.owl
+  source_url:  https://purl.org/turbbo/RBBO.owl
   method: owl2obo
 tracker: https://github.com/fatibaba/turbbo/issues
 license:
@@ -26,7 +26,7 @@ license:
   label: CC BY 4.0
 activity_status: active
 repository: https://github.com/fatibaba/turbbo
-preferredPrefix: TURBBO
+preferredPrefix: RBBO
 
 ---
 
