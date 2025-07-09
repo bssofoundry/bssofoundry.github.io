@@ -32,3 +32,4 @@ preferredPrefix: BCIO
 ---
 
 The ontology developed by the Human Behaviour-Change Project to synthesise knowledge about human behaviour change. 
+A searchable database of theories of behaviour change formalised according to an Ontology-Based Modelling System is available at [theory-database.hbcptools.org](https://theory-database.hbcptools.org/). 
